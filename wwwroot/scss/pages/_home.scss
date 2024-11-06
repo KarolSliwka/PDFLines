@@ -1,0 +1,30 @@
+﻿#home {
+    .card-body {
+        h6 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .update {
+            margin-top: 1rem;
+            border-top: 1px solid #e8e8e8;
+            padding-top: .5rem;
+
+            .lead {
+                margin-bottom: 0;
+                font-size: .825rem;
+                color: #adadad;
+                display: flex;
+                font-weight: 500;
+
+                span {
+                    margin-left: auto;
+                }
+
+                &:nth-child(2) {
+                    color: $d_blue;
+                }
+            }
+        }
+    }
+}

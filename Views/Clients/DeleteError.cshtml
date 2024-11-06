@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Błąd!";
+}
+
+<div class="container my-4">
+    <div class="d-flex justify-content-between">
+        <h1 class="h1-title mb-0">@ViewData["Title"]</h1>
+    </div>
+    <hr class="title-line"/>
+    <div class="alert alert-danger">
+        <p class="mb-0">Nie można usunąć klienta <strong>@ViewBag.ClientName</strong> ponieważ ma przypisane projekty.</p>
+        <p class="mb-0">Usuń wszystkie przypisane projekty przed usunięciem klienta.</p>
+    </div>
+    <div class="row buttons mb-4">
+        <div class="col-12 col-sm-6">
+            <a href="@Url.Action("Delete", "Clients", new { id = ViewBag.ClientId })" class="btn btn-primary btn-reset">Powrót</a>
+        </div>
+        <div class="col-12 col-sm-6 d-flex justify-content-end">
+            <a href="@Url.Action("Index", "Projects")" class="btn btn-primary">Projekty</a>
+        </div>
+    </div>
+</div>

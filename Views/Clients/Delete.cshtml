@@ -1,0 +1,25 @@
+﻿@model PDFLines.Models.Client
+
+@{
+    ViewData["Title"] = "Usuwanie klienta";
+    ViewData["Subtitle"] = "Usuwanie kleinta";
+}
+<!-- go back button -->
+<a asp-action="Index" class="btn btn-back">
+    <i class="bi bi-arrow-left-short me-1"></i>Wróć
+</a>
+<!-- Delete form -->
+<div class="container my-4">
+    <h1>@ViewData["Subtitle"]</h1>
+    <hr class="title-line"/>
+    <dl class="row">
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Name)</dt>
+        <dd class="col-sm-10">@Html.DisplayFor(model => model.Name)</dd>
+        <dt class="col-sm-2">@Html.DisplayNameFor(model => model.Active)</dt>
+        <dd class="col-sm-10">@(Model.Active ? "Tak":"Nie")</dd>
+    </dl>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ClientId" />
+        <input type="submit" value="Usuń" class="btn btn-danger" />
+    </form>
+</div>

@@ -1,0 +1,132 @@
+﻿@model PaginatedList<PDFLines.Models.Project>
+
+@{
+    ViewData["Title"] = "Projekty";
+    ViewData["Subtitle"] = "Projekty";
+}
+<!-- Assortment List -->
+<div class="container-fluid my-4">
+    <div class="d-flex justify-content-between">
+        <h1 class="h1-title mb-0">@ViewData["Subtitle"]</h1>
+        <a asp-action="Create" type="button" class="btn-add-plus"
+            data-bs-toggle="tooltip" data-bs-title="Dodaj">
+            <i class="bi bi-plus-circle"></i>
+        </a>
+    </div>
+    <hr class="title-line"/>
+    <!-- table -->
+    <div class="table-responsive">
+        @if (Model.Count() > 0)
+        {
+            <table class="table table-striped">
+                <thead>
+                    <tr class="text-nowrap">
+                        <th>#</th>
+                        <th>@Html.DisplayNameFor(model => model[0].ClientId)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].Name)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].Type)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].FileName)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].FileLocation)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].Active)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].Order)</th>
+                        <th>@Html.DisplayNameFor(model => model[0].UserId)</th>
+                        <th class="text-end">Akcje</th>
+                    </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                @{ int rowNo = 0; }
+                @foreach (var item in Model) {
+                    <tr>
+                        <th scope="row">@(rowNo += 1)</th>
+                        <td>@Html.DisplayFor(modelItem => item.Clients.Name)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                        <td>
+                        @switch (item.Type ) {
+                            case 1:
+                                <span>SMT</span>
+                                break;
+                            case 2:
+                                <span>Non SMT</span>
+                                break;
+                            case 3:
+                                <span>Backend</span>
+                                break;
+                            case 4:
+                                <span>Fabrication</span>
+                                break;
+                            case 5:
+                                <span>Integration</span>
+                                break;
+                            case 6:
+                                <span>Welding</span>
+                                break;
+                            case 7:
+                                <span>Stamping</span>
+                                break;
+                            case 8:
+                                <span>Paintshop</span>
+                                break;
+                        }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.FileName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FileLocation)</td>
+                        <td>
+                        @switch (item.Active) {
+                            case true:
+                                <span>Tak</span>
+                                break;
+                            case false:
+                                <span>Nie</span>
+                                break;
+                        }
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.Order)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Users.NameSurname)</td>
+                        <td class="text-end text-nowrap">
+                            <a asp-action="Edit" asp-route-id="@item.ProjectId" asp-route-pageNumber="@ViewBag.pageNumber"
+                                class="btn-action me-2" data-bs-toggle="tooltip" data-bs-title="Edytuj">
+                                <i class="bi bi-pencil-fill"></i>
+                            </a>
+                            <a asp-action="Delete" asp-route-id="@item.ProjectId" asp-route-pageNumber="@ViewBag.pageNumber"
+                                class="btn-action " data-bs-toggle="tooltip" data-bs-title="Usuń">
+                                <i class="bi bi-trash3-fill"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            @if (Model.AllItems > 20) 
+            {    
+                var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+                var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+                <div class="d-flex justify-content-between pagination">
+                    <div class="col-12 col-sm-8 col-md-8 col-lg-6">
+                        @if (Model.PageIndex > 1)
+                        {
+                            <a asp-action="Index" asp-route-pageNumber="1" class="btn btn-default" style="max-width: 40px;">
+                                <i class="bi bi-chevron-bar-left" style="margin: auto auto;"></i>
+                            </a>
+                        }
+                        <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Poprzednia</a>
+                        <a class="btn btn-default disabled mx-1">@Model.PageIndex / @Model.TotalPages</a>
+                        <a asp-action="Index" asp-route-pageNumber="@(Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Następna</a>
+                        @if (Model.TotalPages > 2){
+
+                            <a asp-action="Index" asp-route-pageNumber="@Model.TotalPages" class="btn btn-default" style="max-width: 40px;">
+                                <i class="bi bi-chevron-bar-right" style="margin: auto auto;"></i>
+                            </a>
+                        }
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-4 col-lg-6 d-flex justify-content-end counter">
+                        <a class="btn btn-records-counter disabled">@(Model.PageIndex == 1 ? 1 : Model.PageIndex * 20 - 19) -  @(Model.PageIndex == Model.TotalPages ? Model.AllItems : Model.PageIndex * 20) z @Model.AllItems</a>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p class="lead missing-text">Brak rekordów w bazie danych</p>
+        }
+    </div>
+</div>

@@ -1,0 +1,210 @@
+﻿@import "../abstracts/_variables.scss";
+
+.sortable-item {
+    box-shadow: 0 .125rem .25rem rgba(33, 37, 41,.075);
+    padding: 0.65rem 0.825rem;
+    margin-bottom: .5rem;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: .5rem;
+    border: 1px solid #dee2e6;
+
+    &:hover {
+        background: $d_blue;
+        background: linear-gradient(90deg, $d_blue 0%, $blue 100%);
+        color: #fff;
+    }
+}
+
+.status-card {
+    box-shadow: 0 .125rem .25rem rgba(33, 37, 41,.075);
+    padding: .55rem;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: .5rem;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border: 1px solid #dee2e6;
+    transition: .15s;
+    position: relative;
+    min-height: 120px;
+
+    &:hover {
+        .bar {
+            transition: all 0.15s ease-in-out;
+            width: 100%;
+        }
+    }
+
+    .bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: $blue_gradient;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .card-image-top {
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 10px;
+        
+        small {
+            margin-top: auto;
+        }
+
+        i {
+            font-size: 1rem;
+            color: $d_blue;
+        }
+
+        small {
+            font-family: 'Montserrat';
+        }
+    }
+}
+
+.project-card {
+    box-shadow: 0 .125rem .25rem rgba(33, 37, 41,.075);
+    padding: .55rem;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: .5rem;
+    border: 1px solid #dee2e6;
+    min-height: calc(100vh/2.5);
+    transition: .15s;
+    margin-bottom: 1rem;
+    position: relative;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+
+    .content {
+        display: flex;
+        margin: auto auto;
+        flex-direction: column;
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: rgba($d_blue, .85);
+        }
+
+        .card-image-top {
+            i {
+                display: flex;
+                justify-content: center;
+                margin: 1rem 0 1rem 0;
+                font-size: 5rem;
+                color: $d_blue;
+            }
+        }
+    }
+
+    .area {
+            position: absolute;
+            bottom: 2px;
+            right: 24px;
+            font-size: 14px;
+            color: #d9d9d9;
+            font-weight: 400;
+        }
+    }
+
+    .project-card-s {
+        @extend .project-card;
+        min-height: 240px;
+    }
+
+    .back-card {
+        @extend .project-card;
+        min-height: calc(100vh/2.5) !important;
+
+
+        .card-back {
+            font-family: "Montserrat";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+
+            i {
+                margin-left: -.65rem;
+            }
+        }
+
+        &:first-child {
+            background-color: rgba($d_blue, 1);
+        }
+    }
+
+    .back-card-s {
+        @extend .project-card-s;
+
+        .card-back {
+            font-family: "Montserrat";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+
+            i {
+                margin-left: -.65rem;
+            }
+        }
+
+        &:first-child {
+            background-color: rgba($d_blue, 1);
+        }
+    }
+
+    .back-status-card {
+        @extend .status-card;
+        background-color: rgba($d_blue, 1);
+
+        .card-back {
+            font-family: "Montserrat";
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            color: #fff;
+
+            i {
+                margin-left: -.65rem;
+            }
+        }
+    }
+
+    .card-image-top {
+        .bi {
+            background: linear-gradient(135deg, $d_blue 0%, $blue 60%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    #SMTClients, #BackendClients {
+        main {
+            margin: auto 0;
+        }
+
+        footer {
+            margin-top: 0 !important;
+        }
+    }
+
+    #home {
+        margin: auto auto;
+
+        main > .container-main {
+            margin-top: 86px;
+            padding: 0;
+        }
+    }

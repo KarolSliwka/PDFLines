@@ -1,0 +1,142 @@
+﻿form {
+    font-family: 'Montserrat';
+
+    .form-group {
+        margin-top: 1rem;
+
+        label {
+            font-weight: 600;
+            margin-bottom: .25rem;
+        }
+
+        input {
+        }
+    }
+
+    .text-danger {
+        font-size: .825rem;
+        font-weight: 500;
+        color: #cc0000;
+    }
+
+    .required:after {
+        content: " *";
+        font-size: 1rem;
+        color: #cc0000;
+    }
+
+
+    .form-switch {
+        margin-top: .25rem;
+        display: flex;
+        align-content: center;
+
+        .form-check-label {
+            margin-top: .25rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: none;
+        }
+
+        .form-check-input {
+            width: 3rem;
+            height: 1.5rem;
+            margin-right: 1rem;
+            box-shadow: none;
+            --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+
+            &:focus {
+                --bs-form-select-bg-img: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='rgba%280, 0, 0, 0.25%29'/%3e%3c/svg%3e");
+                border: none;
+            }
+
+            &:checked {
+                background-color: $blue;
+                border: 2px solid $blue;
+            }
+        }
+    }
+
+    .form-select:disabled,
+    .form-control:disabled {
+        background-color: #d7d7d7 !important;
+    }
+
+    &:focus-visible {
+        outline: none !important;
+    }
+
+
+    .no-style-select {
+        width: inherit;
+        background-color: inherit;
+        padding: 0 2.25rem 0 0;
+    }
+
+    .no-style-select option {
+        padding: .375rem 2.25rem .375rem .75rem !important;
+    }
+}
+
+.ui-autocomplete {
+    /* same as above */
+    max-height: 200px;
+    /* note that x is hidden now */
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+#users {
+    .form-select {
+        border: none;
+        background-color: inherit;
+        border-radius: 0;
+
+        &:hover, &:active, &:focus, &:focus-visible {
+            box-shadow: none;
+        }
+
+        &:disabled {
+            --bs-form-select-bg-img: none;
+            border: none;
+            color: #b1b1b1;
+            background-color: inherit;
+        }
+    }
+}
+
+// accordions
+.accordion {
+    .accordion-item {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+
+        .accordion-button {
+            padding: .65rem 1rem;
+
+            &:active, &:focus, &:focus-visible, &:hover {
+                border: none;
+                outline: none;
+                box-shadow: none;
+            }
+        }
+    }
+
+    .accordion-collapse {
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+    }
+}
+
+/* Select 2 */
+.select2-container--default .select2-selection--multiple {
+    border-radius: 4px;
+    border: 1px solid #777;
+    cursor: text;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    position: relative;
+    font-size: .825rem;
+    width: auto !important;
+}

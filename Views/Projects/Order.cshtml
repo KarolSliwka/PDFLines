@@ -1,0 +1,30 @@
+﻿@model IEnumerable<PDFLines.Models.Project>
+
+@{
+    ViewData["Title"] = "Kolejność projektów";
+    ViewData["Subtitle"] = "Kolejność projektów";
+}
+<!-- Create form -->
+<div class="container my-4">
+    <div class="d-flex justify-content-between">
+        <h1 class="h1-title mb-0">@ViewData["Subtitle"]</h1>
+    </div>
+    <div class="row">       
+        <!-- left side -->
+        <div class="col-12 col-lg-4">
+            <div class="form-group">
+                <label class="control-label required"></label>
+                <select id="ClientId" class="form-select" asp-items="@ViewBag.Clients" >
+                    <option value="">Wybierz klienta..</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <hr class="title-line"/>
+    <div id="sortable"></div>
+</div>
+
+@section scripts {
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="~/js/orders.js"></script>
+}

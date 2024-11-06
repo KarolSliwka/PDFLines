@@ -1,0 +1,87 @@
+﻿@model PDFLines.Models.Project
+
+@{
+    ViewData["Title"] = " - Dodawanie projektu";
+    ViewData["Subtitle"] = "Dodawanie projektu";
+}
+<!-- go back button -->
+<a class="btn btn-back" asp-action="Index" asp-route-pageNumber="@ViewBag.PageNumber">
+    <i class="bi bi-arrow-left-short me-1"></i>Wróć
+</a>
+<!-- Create form -->
+<div class="container my-4">
+    <h1>@ViewData["Subtitle"]</h1>
+    <hr class="title-line"/>
+        <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger required"></div>
+        <input type="hidden" asp-for="UserId" value="@ViewData["UserId"]" />
+        <div class="row">       
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <label asp-for="ClientId" class="control-label required"></label>
+                    <select asp-for="ClientId" class="form-control">
+                        <option value="">Wybierz..</option>
+                        @foreach (var item in ViewBag.Clients)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                    <span asp-validation-for="ClientId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label required"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Axis II Shark"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Type" class="control-label required"></label>
+                    <select asp-for="Type" class="form-select">
+                        <option value="">Wybierz..</option>
+                        <option value="1">SMT</option>
+                        <option value="2">Non SMT</option>
+                        <option value="3">Backend</option>
+                        <option value="4">Fabrication</option>
+                        <option value="5">Integration</option>
+                        <option value="6">Welding</option>
+                        <option value="7">Stamping</option>
+                        <option value="8">Paintshop</option>
+                    </select>
+                    <span asp-validation-for="Type" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <label asp-for="FileName" class="control-label required"></label>
+                    <input asp-for="FileName" class="form-control" placeholder="MANUAL_AXIS_II_Shark_" />
+                    <span asp-validation-for="FileName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="FileLocation" class="control-label required"></label>
+                    <input asp-for="FileLocation" class="form-control" placeholder="\\tcznt114\CAMPUS_TCZEW\PCBA\ProductionPlanning"/>
+                    <span asp-validation-for="FileLocation" class="text-danger"></span>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="form-group">
+                        <label asp-for="Active" class="control-label required"></label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input is-corrected" type="checkbox" role="switch" id="IsActive" asp-for="Active" />
+                            <label class="form-check-label is-corrected-label" for="IsActive">Nie</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="row buttons mb-4">
+            <div class="col-12 col-sm-6">
+                <button type="reset" class="btn btn-primary btn-reset">Wyczyść</button>
+            </div>
+            <div class="col-12 col-sm-6 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Dodaj</button>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

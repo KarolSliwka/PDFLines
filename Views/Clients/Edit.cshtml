@@ -1,0 +1,56 @@
+﻿@model PDFLines.Models.Client
+
+@{
+    ViewData["Title"] = "Edycja klienta";
+    ViewData["Subtitle"] = "Edycja kleinta";
+}
+<!-- go back button -->
+<a asp-action="Index" class="btn btn-back">
+    <i class="bi bi-arrow-left-short me-1"></i>Wróć
+</a>
+<!-- Edit form -->
+<div class="container my-4">
+    <h1>@ViewData["Subtitle"]</h1>
+    <hr class="title-line"/>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="ClientId" />
+        <div class="row">       
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label required"></label>
+                    <input asp-for="Name" class="form-control" placeholder="Wpisz..">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <label asp-for="Active" class="control-label required"></label>
+                    <div class="form-check form-switch">
+                    <input class="form-check-input is-corrected" type="checkbox" role="switch" id="IsActive" asp-for="Active" />
+                        @if (Model.Active == true)
+                        {
+                            <label class="form-check-label is-corrected-label" for="IsActive">Tak</label>
+                        }
+                        else
+                        {
+                            <label class="form-check-label is-corrected-label" for="IsActive">Nie</label>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="row buttons mb-4">
+            <div class="col-12 col-sm-6">
+                <button type="reset" class="btn btn-primary btn-reset">Przywróć</button>
+            </div>
+            <div class="col-12 col-sm-6 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Zapisz</button>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,119 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <a class="card project-card" asp-controller="Projects" asp-action="SMTClients" target="_self">
+                <div class="content text-center">  
+                    <div class="card-image-top">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0 text-center">
+                        <h6 class="card-title p-0 m-0">SMT</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["SMTCount"]</span></small>
+                    </div>
+                    <p class="area">PCBA</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+            <a class="card project-card" asp-controller="Projects" asp-action="NonSMT" target="_self">
+                <div class="content text-center">
+                    <div class="card-image-top">
+                        <i class="bi bi-sliders"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Non SMT</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["NonSMTCount"]</span></small>
+                    </div>
+                    <p class="area">PCBA</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-0">
+            <a class="card project-card" asp-controller="Projects" asp-action="BackendClients" target="_self">
+                <div class="content text-center">
+                    <div class="card-image-top">
+                        <i class="bi bi-person-workspace"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Backend</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["Backend"]</span></small>
+                    </div>
+                    <p class="area">PCBA</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-0">
+            <a class="card project-card" asp-controller="Projects" asp-action="FabricationClients" target="_self">
+                <div class="content text-center"> 
+                    <div class="card-image-top">
+                        <i class="bi bi-wrench-adjustable"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Fabrication</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["FabricationCount"]</span></small>
+                    </div>
+                    <p class="area">MECH</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-0">
+            <a class="card project-card" asp-controller="Projects" asp-action="IntegrationClients" target="_self">
+                <div class="content text-center">
+                    <div class="card-image-top">
+                        <i class="bi bi-inboxes-fill"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Integration</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["IntegrationCount"]</span></small>
+                    </div>
+                    <p class="area">MECH</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-0">
+            <a class="card project-card" asp-controller="Projects" asp-action="WeldingClients" target="_self">
+                <div class="content text-center">
+                    <div class="card-image-top">
+                        <i class="bi bi-shield-exclamation"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Welding</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["WeldingCount"]</span></small>
+                    </div>
+                    <p class="area">MECH</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-0">
+            <a class="card project-card" asp-controller="Projects" asp-action="StampingClients" target="_self">
+                <div class="content text-center">
+                    <div class="card-image-top">
+                        <i class="bi bi-align-bottom"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Stamping</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["StampingCount"]</span></small>
+                    </div>
+                    <p class="area">MECH</p>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 my-0">
+            <a class="card project-card" asp-controller="Projects" asp-action="PaintshopClients" target="_self">
+                <div class="content text-center">
+                    <div class="card-image-top">
+                        <i class="bi bi-droplet-half"></i>
+                    </div>
+                    <div class="card-body mt-2 pt-0">
+                        <h6 class="card-title p-0 m-0">Paintshop</h6>
+                        <small class="missing-text-light">Ilość Projektów :<span class="ms-1">@ViewData["PaintshopCount"]</span></small>
+                    </div>
+                    <p class="area">MECH</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

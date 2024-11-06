@@ -1,0 +1,155 @@
+﻿.table-statuses {
+    height: calc(100vh - 260px);
+    width: auto;
+    overflow: auto;
+    font-family: 'Montserrat';
+
+    .table {
+        position: relative;
+        font-size: .825rem;
+        font-weight: 400;
+        background-color: #fff;
+        table-layout: fixed;
+
+        thead {
+            background-color: #0d2c4a;
+
+            th {
+                position: sticky;
+                top: 0;
+                background-color: #0d2c4a;
+                color: #fff;
+                z-index: 2;
+                height: 200px;
+                width: 80px;
+                font-weight: 300;
+                padding: .5rem .25rem;
+
+                &:nth-child(1), &:nth-child(2) {
+                    font-weight: 500;
+                    padding: .5rem .5rem;
+                }
+
+                &:last-child {
+                    font-weight: 600;
+                    color: #fff;
+                }
+
+                .vertical {
+                    writing-mode: vertical-rl;
+                    text-orientation: sideways;
+                    display: block;
+                    transform: rotate(180deg);
+                    margin: auto auto;
+                    text-wrap: pretty;
+                }
+            }
+        }
+
+        th:nth-child(1),
+        th:nth-child(2) {
+            position: sticky;
+            z-index: 3;
+            width: 250px;
+        }
+
+        th:nth-child(1) {
+            left: 0;
+        }
+
+        th:nth-child(2) {
+            left: 250px;
+        }
+
+        td {
+            text-align: center;
+        }
+
+        td:nth-child(1),
+        td:nth-child(2) {
+            position: sticky !important;
+            background-color: #fff;
+            text-wrap: nowrap;
+            z-index: 2;
+            text-align: left;
+            width: 250px;
+            max-width: 250px;
+        }
+
+        td:nth-child(1) {
+            left: 0;
+        }
+
+        td:nth-child(2) {
+            left: 250px;
+        }
+
+        .non-value {
+            color: rgba(#ccc, .45) !important;
+        }
+
+        .ex-value {
+            font-weight: 500;
+            color: #104f8b;
+        }
+
+        .bold-grand {
+            font-weight: 600;
+            color: #fff;
+            background-color: #5a6b7c !important;
+        }
+
+        .part-number-total{ 
+            border: none;
+        }
+
+        .part-number-total,
+        .grand-total {
+            font-weight: 600;
+            color: #fff;
+            background-color: #5a6b7c;
+            text-align: center;
+        }
+    }
+}
+
+#spinner {
+    position: absolute;
+    top: calc(50% - 64px);
+    left: calc(50% - 123px);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    img {
+        width: 64px;
+        height: 64px;
+        display: flex;
+        justify-content: center;
+        margin: 10px auto;
+    }
+
+    .lead {
+        text-transform: uppercase;
+        color: $blue;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+.btn-excel,
+.btn-excel-dark { 
+    border: none;
+    img {
+        height: 36px;
+        width: 36px;
+    }
+}
+
+.table-striped-light {
+    tr {
+        &:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    }
+}

@@ -1,0 +1,15 @@
+﻿.ui-menu-item {
+    border: none !important;
+
+    &:nth-child(even) {
+        background-color: #f2f2f2 !important;
+    }
+
+    .ui-menu-item-wrapper {
+
+        &:active, &:hover, &:focus, &:focus-visible {
+            border: none !important;
+            background-color: $green !important;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+﻿@import "../abstracts/_variables.scss";
+
+$funnel-bg: #cfe2ff;
+$funnel-font: #0a58ca;
+
+
+.filters {
+    font-family: 'Montserrat' !important;
+    background-color: #fff;
+    padding: 1rem;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    border-bottom: 2px solid #0d2c4a;
+
+    .form-label {
+        color: $d-blue;
+        font-size: .825rem;
+        font-weight: 500;
+        margin-bottom: .25rem !important;
+    }
+
+    .btn-filter {
+        background-color: $funnel-bg;
+        color: $funnel-font;
+        font-size: 0.85rem;
+        font-weight: 500;
+        width: 120px;
+        max-width: 120px;
+        height: 36px;
+        margin-top: auto;
+
+        &:hover {
+            background-color: #000000;
+            color: #fff;
+        }
+    }
+}
+
+.btn-funnel {
+    margin-left: .25rem;
+    height: 36px;
+    width: 36px;
+    background-color: $funnel-bg;
+    color: $funnel-font;
+    display: flex;
+    justify-content:center;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        color: #fff;
+        background-color: #000;
+    }
+}
+
+.select2-selection {
+    border: 2px solid #dbdbdb !important;
+    font-size: .85rem !important;
+    padding: 0.5rem .25rem !important;
+    display: flex !important;
+    justify-content: start !important;
+    line-height: normal !important;
+    border-radius: .5rem !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.select2-container--default .select2-results__option--selected {
+    color: #fff !important;
+    background-color: $d_blue !important;
+}
+
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: $blue !important;
+}

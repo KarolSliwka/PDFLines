@@ -1,0 +1,73 @@
+﻿h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat',Arial, Helvetica, sans-serif !important;
+}
+
+h1 {
+    font-size: 1.25rem; //1.625em;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem; //2rem
+}
+
+h2 {
+    font-size: 1.25em;
+    font-weight: 600;
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    margin-bottom: 1rem; //2rem
+}
+
+h3 {
+    font-size: 1.125rem;
+    font-weight: 500;
+    background: var(--blue-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem; //2rem
+}
+
+.title-line {
+    opacity: 1;
+    height: 4px;
+    border: none;
+    background-color: #f3f3f3;
+}
+
+.hr-middle {
+    opacity: 1;
+    height: 4px;
+    border: none;
+    background-color: #b3b3b3;
+    opacity: .15;
+}
+
+.missing-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #777;
+
+    span {
+        font-weight: 700;
+    }
+}
+
+.missing-text-light {
+    font-family: "Montserrat";
+    font-weight: 300;
+    font-size: .85rem;
+    color: #808080;
+}
+
+.h1-title {
+    @extend h1;
+}
+
+.text-small {
+    font-weight: 500;
+    color: #777;
+}

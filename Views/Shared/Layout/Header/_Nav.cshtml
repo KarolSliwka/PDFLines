@@ -1,0 +1,56 @@
+﻿<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" asp-controller="Home" asp-action="Index">
+            <img src="~/logo.png" alt="flex-logo"> PDF Lines
+        </a>
+        @if (!User.IsInRole("noaccess")) {
+        <button id="btn-hamburger" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+            <div class="navbar-collapse collapse justify-content-between">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <button class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">PCBA</button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="SMTClients"><i class="bi bi-cpu me-2"></i>SMT</a></li>
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="NonSmt"><i class="bi bi-sliders me-2"></i>Non SMT</a></li>
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="BackendClients"><i class="bi bi-person-workspace me-2"></i>Backend</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <button class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">MECH</button>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="FabricationClients"><i class="bi bi-wrench-adjustable me-2"></i>Fabrication</a></li>
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="IntegrationClients"><i class="bi bi-inboxes-fill me-2"></i>Integration</a></li>
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="WeldingClients"><i class="bi bi-shield-exclamation me-2"></i>Welding</a></li>
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="StampingClients"><i class="bi bi-align-bottom me-2"></i>Stamping</a></li>
+                        <li><a class="dropdown-item" asp-controller="Projects" asp-action="PaintshopClients"><i class="bi bi-droplet-half me-2"></i>Paintshop</a></li>
+                    </ul>
+                </li>
+                <!-- Administration -->
+                @if (User.IsInRole("super") || User.IsInRole("admin")) {
+                    <li class="nav-item dropdown">
+                        <button class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-gear me-2"></i>Admininistracja
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" asp-controller="Clients" asp-action="Index">Klienci</a></li>
+                            <li><a class="dropdown-item" asp-controller="Projects" asp-action="Index">Projekty</a></li>
+                            <li><a class="dropdown-item" asp-controller="Projects" asp-action="Order">Kolejność Projektów</a></li>
+                            <li><a class="dropdown-item" asp-controller="Maintenances" asp-action="Index">Maintenance</a></li>
+                            <li><hr style="margin: 0;border-top: 2px solid #efefef;"/></li>
+                            <li><a class="dropdown-item" asp-controller="Users" asp-action="Index">Użytkownicy</a></li>
+                        </ul>
+                    </li>
+                }
+            </ul>
+        </div>
+        }
+    </div>
+</nav>

@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = ViewBag.ProjectTypeHeader + " - " + ViewBag.ClientName + " - " + ViewBag.ProjectName;
+}
+<div class="container-fluid mt-4" id="displayPDF">
+    <div class="row mb-3">
+        <div class="col-12 col-sm-6 d-flex my-auto align-items-center">
+            @switch (ViewBag.ProjectType)
+            {
+                case 1:
+                    <a  asp-controller="Projects" asp-action="SMT" 
+                        asp-route-id="@ViewBag.ClientId" class="btn btn-back m-0 p-0">
+                        <i class="bi bi-arrow-left-short"></i>Wróć
+                    </a>
+                break;
+                case 2:
+                    <a  asp-controller="Projects" asp-action="NonSMT" 
+                        asp-route-id="@ViewBag.ClientId" class="btn btn-back m-0 p-0">
+                        <i class="bi bi-arrow-left-short"></i>Wróć
+                    </a>
+                break;
+                case 3:
+                    <a  asp-controller="Projects" asp-action="Backend" 
+                        asp-route-id="@ViewBag.ClientId" class="btn btn-back m-0 p-0">
+                        <i class="bi bi-arrow-left-short"></i>Wróć
+                    </a>
+                break;
+            }
+            <h1 class="h1-title ms-3 mb-0">@ViewBag.ProjectName</h1>
+        </div>
+        <div class="col-12 col-sm-6 d-inline-flex justify-content-end">
+            <p class="lead update-time mb-0 me-3">Utworzono: <span>@ViewBag.FileCreationDate</span></p>
+            <p class="lead update-counter mb-0">Odświeżenie za: <span class="px-1" id="refresh-at">05:00</span></p>
+        </div>
+    </div>
+    @if(ViewBag.ProjectName.Contains("LASER")) {
+        <div class="row">
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+                <div class="accordion-item">
+                    <h4 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                            Zaplanowane Przeglądy
+                        </button>
+                    </h4>
+                    <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="talbe-responvie maintenance-table">
+                                @if (ViewBag.Maintenances.Count > 0)
+                                {
+                                    <table class="table table-striped-light">
+                                        <thead>
+                                            <tr class="text-nowrap">
+                                                <th>#</th>
+                                                <th>Opis</th>
+                                                <th>Data Rozpoczęcia</th>
+                                                <th>Data Zakończenia</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @{
+                                                int rowNo = 0;
+                                            }
+                                            @foreach (var maintenance in ViewBag.Maintenances)
+                                            {
+                                                <tr>
+                                                    <th scope="row">@(rowNo += 1)</th>
+                                                    <td>@maintenance.Description</td>
+                                                    <td>@maintenance.StartDate.ToString("yyyy-MM-dd")</td>
+                                                    <td>@maintenance.EndDate.ToString("yyyy-MM-dd")</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                }
+                                else
+                                {
+                                    <p class="lead missing-text">Brak rekordów w bazie danych</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    <iframe id="myiframe" class="@(ViewBag.ProjectName.Contains("LASER") == true ? "smaller-width":"")" {" src="@Url.Action("GetPDF", new { fileUrl = ViewBag.fileUrl })#pagemode=none&view=FitH" style="border:none"></iframe>
+</div>
+@section Scripts {
+    <script src="~/js/pdf.js"></script>
+}

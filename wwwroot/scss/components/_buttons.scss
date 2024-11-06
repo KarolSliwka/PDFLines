@@ -1,0 +1,287 @@
+﻿@import "../abstracts/_variables.scss";
+
+.buttons {
+    margin-top: 1rem;
+}
+
+.btn {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif !important;
+}
+
+.btn-waste {
+    background-color: $btn_home;
+    border: 5px solid #fff;
+    border-radius: 2rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    max-width: 240px;
+    display: flex;
+    justify-content: center;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        color: #fff;
+        background-color: $btn_home_hover !important;
+        border-color: $btn_home_hover !important;
+    }
+}
+
+.btn-primary {
+    margin-top: 1rem;
+    width: 160px;
+    background-color: $blue;
+    border: 3px solid #fff;
+    border-radius: 2rem;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        color: #fff !important;
+        background-color: $m_blue !important;
+        border-color: $m_blue  !important;
+    }
+}
+
+.btn-reset {
+    background-color: #cbcbcb;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        background-color: #8d8d8d !important;
+        border-color: #8d8d8d !important;
+    }
+}
+
+.btn-primary-edit {
+    @extend .btn-primary;
+    width: 110px;
+    font-size: .85rem;
+    font-weight: 500;
+    padding: 0.25rem;
+    margin-bottom: 0 !important
+}
+
+.btn-danger {
+    margin-top: 1rem;
+    width: 160px;
+    background-color: #dc3545;
+    border: 3px solid #fff;
+    border-radius: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        color: #fff !important;
+        background-color: #bb2d3b !important;
+        border-color: #bb2d3b !important;
+    }
+}
+
+
+.btn-back {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #b3b3b3;
+    margin-top: .5rem;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+    }
+}
+
+.bi-arrow-left-short {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+}
+
+.btn-close-container {
+    width: 140px;
+    margin-top: 2px;
+    background-color: $blue;
+    border: 2px solid #fff;
+    border-radius: 1rem;
+    color: #000;
+    font-size: 11px;
+    font-weight: 600;
+    opacity: 1;
+    padding: .25rem;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        color: #fff !important;
+        background-color: $m_blue !important;
+        border-color: $m_blue !important;
+    }
+}
+
+// tables action buttons
+.btn-action {
+    opacity: .35;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        opacity: 1;
+    }
+}
+
+// table inline button
+.btn-inline-green {
+    color: $blue;
+
+    &:hover {
+        color: rgba($blue, 0.5);
+    }
+}
+
+// tasks close button
+.btn-cross {
+    display: flex;
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    font-size: 1.5rem;
+    color: #cbcbcb;
+    padding: 0;
+    justify-content: flex-end;
+    outline: none !important;
+    border: none !important;
+    height: 20px;
+    width: 20px;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        color: #8d8d8d;
+        border: none !important;
+    }
+}
+
+.btn-add-assignment {
+    border: 0;
+    border-radius: 2rem;
+    padding: 0;
+    height: 28px;
+    width: 28px;
+    font-size: 1.85rem;
+    color: #fff;
+    background-color: #d9d9d9;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: $m_blue;
+    }
+}
+
+.btn-add-plus {
+    border: 0;
+    border-radius: 2rem;
+    padding: 0;
+    height: 28px;
+    width: 28px;
+    font-size: 1.85rem;
+    color: #fff;
+    background-color: $blue;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+        background-color: $m_blue;
+    }
+}
+
+.btn-add-plus-small {
+    @extend .btn-add-plus;
+    height: 23px;
+    width: 23px;
+    font-size: 1.5rem;
+
+    &:hover {
+        color: #fff !important;
+    }
+}
+
+.btn-accept {
+    @extend .btn-add-plus;
+    height: 24px;
+    width: 24px;
+    font-size: 1.125rem;
+    justify-content: center;
+}
+
+.btn-add-green {
+    i {
+        color: $blue;
+        font-size: 1.25rem;
+
+        &:hover {
+            color: $m_blue;
+        }
+    }
+}
+
+.btn-filters {
+    background-color: #000000;
+    font-size: 0.85rem;
+    font-weight: 400;
+    max-width: 120px;
+    height: 36px;
+    margin-top: auto;
+}
+
+.btn-default {
+    border: 2px solid #c5c5c5;
+    color: #000;
+    font-size: 0.825rem;
+    font-weight: 500;
+    background-color: #e7e7e7;
+    max-height: 34px;
+    width: 100%;
+    max-width: 100px;
+    margin-top: .25rem;
+
+    &:hover, &:active, &:focus, &:focus-visible {
+        background-color: #000 !important;
+        color: #fff !important;
+    }
+
+    &.disabled {
+        border-color: #ccc;
+    }
+}
+
+.btn-records-counter {
+    @extend .btn-default;
+    max-width: 160px;
+}
+
+.additional-margin {
+    margin-top: 0.35rem !important;
+}
+
+@media (max-width: 575.98px) {
+    .btn-primary {
+        width: 100%;
+    }
+
+    .ver-title {
+        flex-direction: column;
+
+        .btn-primary-edit {
+            margin-top: 1rem !important;
+            width: 100%;
+        }
+    }
+
+    #prepare-container {
+        margin-bottom: 1rem !important;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .additional-margin {
+        margin-top: 1rem !important;
+    }
+}

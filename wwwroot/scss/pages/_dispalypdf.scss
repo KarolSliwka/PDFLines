@@ -1,0 +1,58 @@
+﻿#displayPDF {
+    margin-top: 0;
+    font-family: 'Montserrat';
+
+    iframe {
+        width: calc(100vw - 50px) !important;
+        height: calc(100vh/1.25) !important;
+    }
+
+    .smaller-width {
+        width: calc(100vw - 72px) !important;
+    }
+
+    .update-time {
+        font-size: .825rem;
+        font-weight: 600;
+        color: #000;
+
+        span {
+            font-weight: 400;
+        }
+    }
+
+    .update-counter {
+        @extend .update-time;
+    }
+
+    .btn-back {
+        height: 24px;
+    }
+
+    #refresh-at {
+        display: inline-flex;
+        justify-content: space-around;
+        min-width: 50px;
+    }
+
+    .accordion-header {
+        button {
+            font-size: .825rem;
+            font-weight: 500;
+        }
+    }
+}
+
+.container-main:has(#displayPDF) {
+    padding-bottom: 10px !important;
+}
+
+.maintenance-table {
+    th {
+        font-size: .825rem;
+    }
+
+    td {   
+        font-size: .825rem;
+    }
+}

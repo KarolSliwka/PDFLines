@@ -1,0 +1,66 @@
+﻿@model PDFLines.Models.Maintenance
+
+@{
+    ViewData["Title"] = "Edycja przeglądu";
+    ViewData["Subtitle"] = "Edycja przeglądu";
+}
+
+<a class="btn btn-back" asp-controller="Maintenances" asp-action="Index"
+    asp-route-pageNumber="@ViewBag.PageNumber">
+    <i class="bi bi-arrow-left-short me-1"></i>Wróć
+</a>
+<div class="container my-4">
+    <h1>@ViewData["Subtitle"]</h1>
+    <hr class="title-line"/>
+    <form asp-action="Edit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="MaintenanceId" />
+        <input type="hidden" asp-for="UserId" />
+        <input type="hidden" asp-for="CreationDate"/>
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="form-group">
+                    <label asp-for="ProjectId" class="control-label required"></label>
+                    <select asp-for="ProjectId" class ="form-control" asp-items="ViewBag.ProjectId">
+                        <option value="">Wybierz..</option>
+                    </select>
+                </div>
+                <div class="row row-gap-1">
+                    <div class="col-12 col-lg-6">
+                        <div class="form-group mt-lg-2">
+                            <label asp-for="StartDate" class="control-label required"></label>
+                            <input asp-for="StartDate" class="form-control" type="date" />
+                            <span asp-validation-for="StartDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6">
+                        <div class="form-group mt-lg-2">
+                            <label asp-for="EndDate" class="control-label required"></label>
+                            <input asp-for="EndDate" class="form-control" type="date" />
+                            <span asp-validation-for="EndDate" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6">  
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label required"></label>
+                    <textarea asp-for="Description" class="form-control" rows="4" placeholder="Wpisz.."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <!-- buttons -->
+        <div class="row buttons mb-4">
+            <div class="col-12 col-sm-6">
+                <button type="reset" class="btn btn-primary btn-reset">Przywróć</button>
+            </div>
+            <div class="col-12 col-sm-6 d-flex justify-content-end">
+                <button type="submit" class="btn btn-primary">Zapisz</button>
+            </div>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,25 @@
+﻿@import "../abstracts/_variables.scss";
+
+.noty-main {
+    color: #fff;
+    margin-bottom: .5rem !important;
+}
+
+#noty_layout__topRight {
+    top: 61px !important;
+
+    .noty_theme__metroui.noty_type__success {
+        @extend .noty-main;
+        background-color: $green;
+    }
+
+    .noty_theme__metroui.noty_type__warning {
+        @extend .noty-main;
+        background-color: $gold;
+    }
+
+    .noty_theme__metroui.noty_type__error {
+        @extend .noty-main;
+        background-color: $red;
+    }
+}

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Backend - " + ViewData["ClientName"];
+}
+<div class="container-fuid mt-4 mx-5">
+    <h1 class="h1-title mb-3">@ViewData["ClientName"]</h1>
+@*    <hr class="title-line"/>*@
+    @if (Model.Count > 0)
+    {
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4 row-cols-xxl-5 g-4">
+        <div class="col">
+            <a class="card back-status-card" asp-controller="Projects" asp-action="BackendClients" target="_self">
+                <div class="card-body card-back">
+                    <i class="bi bi-arrow-left-short"></i>Wróć
+                </div>
+            </a>
+        </div>
+        @foreach (var project in Model)
+        {
+        <div class="col">
+            <a class="card status-card" asp-controller="Projects" asp-action="CheckFileExists" asp-route-id="@project.ProjectId">
+                <div class="card-body mt-2 pt-0">
+                    <h6 class="card-title p-0 m-0">@project.Name</h6>
+                </div>
+                <div class="card-image-top">
+                    <i class="bi bi-person-workspace"></i>
+                    <small class="ms-2 text-secondary">Backend</small>
+                </div>
+                <div class="bar"></div>
+            </a>
+        </div>
+        }
+    </div>
+    }
+else
+{
+    <p class="lead missing-text">Brak rekordów w bazie danych dla kategorii <span>Backend</span></p>
+}
+</div>

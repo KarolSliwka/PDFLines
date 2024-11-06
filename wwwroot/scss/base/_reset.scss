@@ -1,0 +1,31 @@
+﻿html, body {
+    height: 100%;
+    width: 100%;
+    min-width: 320px;
+    background-color: #efefef;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+main > .container-main {
+    padding: 65px 15px;
+}
+
+.notyf {
+    top: 45px !important;
+}
+
+.disabled-element {
+    pointer-events: none;
+    color: #A7A7A7;
+}
+
+.status-icon {
+    width: 20px;
+    height: 20px;
+    margin: 0 0.25rem 0.25rem 0;
+}
